@@ -1,0 +1,95 @@
+Class: It is a user-defined data type which holds its own data members and member functions
+Object: It is an instance of a class. When a class is created no memory is allocated, but when object is crated memory is allocated.
+Method: Functions which are declared and defined within class.
+Padding:
+Greedy Alignment: 
+class [ class name ]
+{
+	 *	// Static Data Member
+	 *	static  [ data type ] [ variable name ] = [ value for variable ];
+	 * 	
+	 * 	// Constructor
+	 * 		// Default Constructor
+	 * 		[ class name ]()
+	 * 		{
+	 * 			// statement with no return type
+	 * 		}
+	 *
+	 * 		// Copy Constructor
+	 *		// If we pass by reference then we only point to address of previous object, otherwise if we pass by value then it will first call the parameter of constructor then constructor itself and it will eventually struck in infinite loop.
+	 * 		[ class name ]( [ class name ]& [ variable name ] ) 		{
+	 * 			// statement
+	 * 		}
+	 *
+	 * 		// Parametrised Constructor
+	 * 		[ class name ]( [ parameters ] )
+	 * 		{
+	 * 			// statement
+	 * 			this->[ class member ] = [ parameter ]
+	 * 		}
+	 *
+	 *		// Destructor (Memory De-allocation)
+	 *		~[ class name ]()
+	 *		{
+	 *			// statement
+	 *		}
+	 *		
+	 * 	// Access Modifiers
+	 * 		public:		// Access from anywhere (both inside and outside of class)
+	 * 		private:	// Access from within its own class
+	 * 		protected:	// Access from derived class
+	 *
+	 *	// Getter and Setter
+	 *		// Getter is used to read values
+	 *		[ data type ] [ getter name ]( [ parameters ] )
+	 *		{
+	 *			// statement;
+	 *			return [ return value according to data type ];
+	 *		}
+	 *
+	 *		// Setter is used to assign values
+	 *		void [ setter name ]( [ parameter ] )
+	 *		{
+	 *			// statement;
+	 *		}
+	 * };
+
+int main(int argc, char ** argv)
+{
+	 *
+	 *	// Accessing static data members
+	 *	[ class name ]::[ static data member ];
+	 *
+	 *	// Static Allocation
+	 *	[ class name ] [ variable name ];	 // If class doesn't have any parametrised constructor
+	 *	[ class name ] [ variable name ]();  // If class does have parametrised constructor
+	 *	[ class variable ].[ class member ];  // Calling class members from static allocation
+	 *
+	 *	// Dynamic Allocation
+	 *	[ class name ] * [ variable name ] = new [ class name ];   // If class doesn't have any parameterised constructor
+	 *	[ class name ] * [ variable name ] = new [ class name ](); // If class does have parametrised constructor
+	 *	( *[ class variable ] ).[ class member ];	// Calling class members ' * ' deferencing
+	 *	[ class member ]->[ class member ];			// Calling class members using ' -> ' arrow operator
+	 *	delete [ class object name ];				// Calling desctructor manually
+	 *
+	 * 	// Copy Constructor ( shallow copy )
+	 * 	[ class name ] [ variable name ]( [ previously object name ] );
+	 * 			// OR
+	 * 	[ class name ] [ variable name ] = [ previously object name ];
+	 * 			// OR
+	 * 	[ class name ] [ variable name ] { [ previously object name ] };
+}
+Note: -
+		1. By default access modifier is private.
+		2. In case of object of an empty class is assigned with 1 byte (for identification purpose).
+		3. To access members of class using dot operator ' . '
+		4. By-default constructor doesn't have any parameter and return type.
+		5. Constructor have same name as class name.
+		6. this keyword store address of current object.
+		7. Bydefault inbuilt it is a copy constructor.
+		8. Default copy constructor do shallow copy i.e., once copied it can be changed again.
+		9. For deep copy we have explicitly assign extra memory to value using strcpy(), copy assignment operator.
+		10. Destructor doesn't have any parameter or return type.
+		11. When an object is called by static allocation then destructor is called by itself. But if object is called by dynamic allocation then destructor should be called manually.
+		12. Static data member only belongs to class (Not belongs to object). It doesn't need any instance of a class to access, we can directly access using class and scope resolution operator.
+		13. Static data function doesn't need any object or this keyword to access. We can access it using scope resolution operator.They can only access static members.
