@@ -1,4 +1,4 @@
-Encapsulation: Process of grouping data members and methods into a single unit. To allow accessing those restricted data and methods, we have to declare public methods.
+(A) Encapsulation: Process of grouping data members and methods into a single unit. To allow accessing those restricted data and methods, we have to declare public methods.
 Fully Encapsulated: Hinding all internal data members and methods within a class.
 
 [ class name ]
@@ -11,7 +11,7 @@ Fully Encapsulated: Hinding all internal data members and methods within a class
 };
 
 
-Abstraction: Displaying only essential information and hiding background details and implementation.
+(B) Abstraction: Displaying only essential information and hiding background details and implementation.
 
 [ class name ]
 {
@@ -23,7 +23,7 @@ Abstraction: Displaying only essential information and hiding background details
 };
 
 
-Inheritence: A mechanism that allow derived class to inherit properties (data members or methods) from base class.
+(C) Inheritence: A mechanism that allow derived class to inherit properties (data members or methods) from base class.
 
 // Parent class
 [ class name ]
@@ -147,35 +147,136 @@ Type of inheritence: -
 
 	5. Hybrid Inheritence: It is a combination of more than one type of inheritence.
 
-Mode of Inheritence: -
-1. Public Mode (Derived Class): -
-		Base Class			--->	Derived Class
-		----------					-------------
-		Public				---> 	Public
-		Protected		 	---> 	Protected
-		Private				--->	Can't Accessed
-1. Protected Mode (Derived Class): -
-		Base Class			--->	Derived Class
-		----------					-------------
-		Public				---> 	Protected
-		Protected		 	---> 	Protected
-		Private				--->	Can't Accessed
-1. Private Mode (Derived Class): -
-		Base Class			--->	Derived Class
-		----------					-------------
-		Public				---> 	Private
-		Protected		 	---> 	Private
-		Private				--->	Can't Accessed
+	Mode of Inheritence: -
+	1. Public Mode (Derived Class): -
+			Base Class			--->	Derived Class
+			----------					-------------
+			Public				--->    Public
+			Protected		 	---> 	Protected
+			Private			   	--->	Can't Accessed
+	2. Protected Mode (Derived Class): -
+			Base Class		 	--->	Derived Class
+			----------					-------------
+			Public				---> 	Protected
+			Protected		  	---> 	Protected
+			Private			 	--->	Can't Accessed
+	3. Private Mode (Derived Class): -
+			Base Class			--->	Derived Class
+			----------					-------------
+			Public				---> 	Private
+			Protected		 	---> 	Private
+			Private				--->	Can't Accessed
 
-Ambiguity in Inheritence: If a derived class inherit a property of same name from different base class, then compiler is not clear which base class property should have be invoked. To avoid these type of ambiguity we use scope resolution operator.	Syntax for calling: [ derived class object ].[ base class object ]::[ data members and methods ];
+	Ambiguity in Inheritence: -
+		1. If a derived class inherit a property of same name from different base class, then compiler is not clear which base class property should have be invoked.
+		2. To avoid these type of ambiguity we use scope resolution operator.
+		3. Syntax for calling: [ derived class object ].[ base class object ]::[ data members and methods ];
 
-Polymorphism: 'Poly' means 'many' and 'morphism' means 'forms'. It is an ability to display an entity into many forms thourgh same interface.
+(D)Polymorphism: 'Poly' means 'many' and 'morphism' means 'forms'. It is an ability to display an entity into many forms thourgh same interface.
 
-Types of polymorphism: -
-	1. Compile Time polymorphism / Static Binding / Early Binding
-		(i) Method Overloading: Methods having same name and different parameters, these methods are overloaded.
-		(ii) Operator Overloading	
-	2. Run Time polymorphism / Dynamic Binding / Late Binding
+	Types of polymorphism: -
+		1. Compile Time polymorphism / Static Binding / Early Binding
+			(i) Method Overloading: Methods having same name and different parameters within same class.
+				Syntax: -
+				class A
+				{
+					public:
+					void add(int a, int b)
+					{
+						std::cout<<"Result: "<<a+b<<std::endl;
+					}
+
+					void add(int a, int b, int c)
+					{
+						std::cout<<"Result: "<<a+b+c<<std::endl;
+					}
+
+					void add(int a, int b, int c, int d)
+					{
+						std::cout<<"Result: "<<a+b+c+d<<std::endl;
+					}
+				};
+
+				// Calling methods from main() function
+				A obj;
+				obj.add(10,20);
+				obj.add(10,20,30);
+				obj.add(10,20,30,40);
+
+			(ii) Operator Overloading: Same operator but different operation after redinition. For example, + when placed between number it works as addition but when it is placed between string it works as string concatenaion.
+				Syntax: -
+				[ data type ] operator[ Overloading Operator ]( [ parameters if any operator takes input ] )
+				{
+					// statement
+				}
+
+				Overloading Operator: -
+				,		[]		()		->		->*		new		new[]		delete		delete[]
+				++		--
+				+		-		*		/		%
+				=		<		>		<=		>=		==		!=
+				&&		||		!
+				&		|		^		~		>>		<<
+				+=		-=		*=		/=		%=		&=		|=		^=		>>=		<<=
+
+
+				Operator can't be overloaded:-
+				::(scope resolution operator)		*(pointer)		.(dot operator)			?: (ternary operator)
+
+		2. Run Time polymorphism / Dynamic Binding / Late Binding
+			(i) Method Overriding: Methods having same name and parameters but different class (both parent and child class).
+				Example: -
+				class A
+				{
+					public:
+					void fun()
+					{
+						std::cout<<"This is parent class"<<std::endl;
+					}
+				};
+				class B: public A
+				{
+					public:
+					@override
+					void fun()
+					{
+						std::cout<<"This is child class"<<std::endl;
+						std::cout<<"This is an example of method overriding"<<std::endl;
+					}
+				};
+
+				// Calling methods from main() function
+				B b;
+				b.A::fun();		// calling method from class A
+				b.B::fun();		// calling method from class B
+
+Interfaces: -
+	1. It is defined using abstract classes.
+	2. Abstract class: It is a class that has at least one pure virtual function.
+	3. Pure virtual function: It is declared in the base class but doesn't provide an implementation. ' virtual ' keyword create pure virtual function.
+	4. It doesn't have any object creation.
+	5. If any derived class inherit properties of abstract class, then it is compulsory to define virtual function for object creation.
+	
+	Example: -
+	class A				// Abstract Class
+	{
+		virtual void fun() = 0;		// pure virtual function which convert normal class into abstract class
+
+		virtual ~A() {};				// convert abstract class into normal class
+	};
+	// Calling methods from main() function
+	A a;	// This will not create any instance of class A
+
+Friend Function: -
+	1. It can be declared using private or public modifier within class. But can be defined even outside class.
+	2. It can be called without using objects.
+	3. It can't access the private and protected data members of the class directly. It needs to make use of a class object and then access the members using the dot operator.
+	
+	Syntax: -
+	[ class name ]
+	{
+		friend [ data type ] [ function name ]( [ parameters ] );	// Friend Function Declaration
+	};
 
 Note: -
 	1. Derived class -> Sub class / Child class (Class whose properties are interited to another class)
