@@ -173,7 +173,7 @@ Polymorphism: 'Poly' means 'many' and 'morphism' means 'forms'. It is an ability
 
 Types of polymorphism: -
 	1. Compile Time polymorphism / Static Binding / Early Binding
-		(i) Method Overloading: 
+		(i) Method Overloading: Methods having same name and different parameters, these methods are overloaded.
 		(ii) Operator Overloading	
 	2. Run Time polymorphism / Dynamic Binding / Late Binding
 
