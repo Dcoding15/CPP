@@ -25,153 +25,156 @@ Fully Encapsulated: Hinding all internal data members and methods within a class
 
 (C) Inheritence: A mechanism that allow derived class to inherit properties (data members or methods) from base class.
 
-// Parent class
-[ class name ]
-{
-	public:
-	// statement
-}
+	Derived class -> Sub class / Child class (Class whose properties are interited to another class)
+	Base class -> Super class / Parent class (Class whose properties are interited from another class)
 
-// Child class
-[ class name ] : [ modifier ] [ parent class name ]
-{
-	// statement
-};
-
-Type of inheritence: -
-	1. Single Inheritence: One child class inherit properties from only one parent class.
-		Example: -
-			class A
-			{
-				void fun(){
-					std::cout<<"This is class A"<<std::endl;
-				}
-			};
-			class B: public A
-			{
-				void fun(){
-					std::cout<<"This is class B"<<std::endl;
-				}
-			};
-	2. Multilevel Inheritence: Its is a chain of single inheritence.
-		Example: -
-			class A
-			{
-				public:
-				void fun(){
-					std::cout<<"This is class A"<<std::endl;
-				}
-			};
-			class B: public A
-			{
-				public:
-				void fun(){
-					std::cout<<"This is class B"<<std::endl;
-				}
-			};
-			class C: public B
-			{
-				public:
-				void fun(){
-					std::cout<<"This is class C"<<std::endl;
-				}
-			};
-			class D: public C
-			{
-				public:
-				void fun(){
-					std::cout<<"This is class D"<<std::endl;
-				}
-			};
-	3. Multiple Inheritence: One child class inherit properties from many parent class.
-		Example: -
-			class A
-			{
-				public:
-				void fun(){
-					std::cout<<"This is class A"<<std::endl;
-				}
-			};
-			class B
-			{
-				public:
-				void fun(){
-					std::cout<<"This is class B"<<std::endl;
-				}
-			};
-			class C
-			{
-				public:
-				void fun(){
-					std::cout<<"This is class C"<<std::endl;
-				}
-			};
-			class D: public A, public B, public C
-			{
-				public:
-				void fun(){
-					std::cout<<"This is class D"<<std::endl;
-				}
-			};
-
-	4. Hirarchical Inheritence: Many child class inherit properties from one parent class.
-		Example: -
-			class A
-			{
-				public:
-				void fun(){
-					std::cout<<"This is class A"<<std::endl;
-				}
-			};
-			class B: public A
-			{
-				public:
-				void fun(){
-					std::cout<<"This is class B"<<std::endl;
-				}
-			};
-			class C: public A
-			{
-				public:
-				void fun(){
-					std::cout<<"This is class C"<<std::endl;
-				}
-			};
-			class D: public A
-			{
-				public:
-				void fun(){
-					std::cout<<"This is class D"<<std::endl;
-				}
-			};
-
-	5. Hybrid Inheritence: It is a combination of more than one type of inheritence.
-
-	Mode of Inheritence: -
-	1. Public Mode (Derived Class): -
-			Base Class			--->	Derived Class
-			----------					-------------
-			Public				--->    Public
-			Protected		 	---> 	Protected
-			Private			   	--->	Can't Accessed
-	2. Protected Mode (Derived Class): -
-			Base Class		 	--->	Derived Class
-			----------					-------------
-			Public				---> 	Protected
-			Protected		  	---> 	Protected
-			Private			 	--->	Can't Accessed
-	3. Private Mode (Derived Class): -
-			Base Class			--->	Derived Class
-			----------					-------------
-			Public				---> 	Private
-			Protected		 	---> 	Private
-			Private				--->	Can't Accessed
-
-	Ambiguity in Inheritence: -
-		1. If a derived class inherit a property of same name from different base class, then compiler is not clear which base class property should have be invoked.
-		2. To avoid these type of ambiguity we use scope resolution operator.
-		3. Syntax for calling: [ derived class object ].[ base class object ]::[ data members and methods ];
-
+	// Parent class
+	[ class name ]
+	{
+		public:
+		// statement
+	}
+	
+	// Child class
+	[ class name ] : [ modifier ] [ parent class name ]
+	{
+		// statement
+	};
+	
+	Type of inheritence: -
+		1. Single Inheritence: One child class inherit properties from only one parent class.
+			Example: -
+				class A
+				{
+					void fun(){
+						std::cout<<"This is class A"<<std::endl;
+					}
+				};
+				class B: public A
+				{
+					void fun(){
+						std::cout<<"This is class B"<<std::endl;
+					}
+				};
+		2. Multilevel Inheritence: Its is a chain of single inheritence.
+			Example: -
+				class A
+				{
+					public:
+					void fun(){
+						std::cout<<"This is class A"<<std::endl;
+					}
+				};
+				class B: public A
+				{
+					public:
+					void fun(){
+						std::cout<<"This is class B"<<std::endl;
+					}
+				};
+				class C: public B
+				{
+					public:
+					void fun(){
+						std::cout<<"This is class C"<<std::endl;
+					}
+				};
+				class D: public C
+				{
+					public:
+					void fun(){
+						std::cout<<"This is class D"<<std::endl;
+					}
+				};
+		3. Multiple Inheritence: One child class inherit properties from many parent class.
+			Example: -
+				class A
+				{
+					public:
+					void fun(){
+						std::cout<<"This is class A"<<std::endl;
+					}
+				};
+				class B
+				{
+					public:
+					void fun(){
+						std::cout<<"This is class B"<<std::endl;
+					}
+				};
+				class C
+				{
+					public:
+					void fun(){
+						std::cout<<"This is class C"<<std::endl;
+					}
+				};
+				class D: public A, public B, public C
+				{
+					public:
+					void fun(){
+						std::cout<<"This is class D"<<std::endl;
+					}
+				};
+	
+		4. Hirarchical Inheritence: Many child class inherit properties from one parent class.
+			Example: -
+				class A
+				{
+					public:
+					void fun(){
+						std::cout<<"This is class A"<<std::endl;
+					}
+				};
+				class B: public A
+				{
+					public:
+					void fun(){
+						std::cout<<"This is class B"<<std::endl;
+					}
+				};
+				class C: public A
+				{
+					public:
+					void fun(){
+						std::cout<<"This is class C"<<std::endl;
+					}
+				};
+				class D: public A
+				{
+					public:
+					void fun(){
+						std::cout<<"This is class D"<<std::endl;
+					}
+				};
+	
+		5. Hybrid Inheritence: It is a combination of more than one type of inheritence.
+	
+		Mode of Inheritence: -
+		1. Public Mode (Derived Class): -
+				Base Class			--->	Derived Class
+				----------					-------------
+				Public				--->    Public
+				Protected		 	---> 	Protected
+				Private			   	--->	Can't Accessed
+		2. Protected Mode (Derived Class): -
+				Base Class		 	--->	Derived Class
+				----------					-------------
+				Public				---> 	Protected
+				Protected		  	---> 	Protected
+				Private			 	--->	Can't Accessed
+		3. Private Mode (Derived Class): -
+				Base Class			--->	Derived Class
+				----------					-------------
+				Public				---> 	Private
+				Protected		 	---> 	Private
+				Private				--->	Can't Accessed
+	
+		Ambiguity in Inheritence: -
+			1. If a derived class inherit a property of same name from different base class, then compiler is not clear which base class property should have be invoked.
+			2. To avoid these type of ambiguity we use scope resolution operator.
+			3. Syntax for calling: [ derived class object ].[ base class object ]::[ data members and methods ];
+	
 (D)Polymorphism: 'Poly' means 'many' and 'morphism' means 'forms'. It is an ability to display an entity into many forms thourgh same interface.
 
 	Types of polymorphism: -
@@ -277,7 +280,3 @@ Friend Function: -
 	{
 		friend [ data type ] [ function name ]( [ parameters ] );	// Friend Function Declaration
 	};
-
-Note: -
-	1. Derived class -> Sub class / Child class (Class whose properties are interited to another class)
-	2. Base class -> Super class / Parent class (Class whose properties are interited from another class)
