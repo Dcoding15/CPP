@@ -1,0 +1,5 @@
+It is also known as network programming.
+It means to write a program to receive and send data between two or more devices within a network is called socket.
+The process of allocating a port number to a socket is called 'binding'.
+The process of converting an unconnected socket into a passive socket is called 'listening'.
+The process of connecting request from listen() method to actual socket is called 'accepting'.
