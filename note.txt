@@ -1,7 +1,0 @@
-STL (standard template libraries): -
----------------------------------
-There are 4 types: -
-	1. Container
-	2. Iterator
-	3. Algorithm
-	4. Funtions
