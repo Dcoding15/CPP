@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+/usr/bin/c++ $1
+./a.out
+rm a.out
