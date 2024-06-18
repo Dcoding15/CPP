@@ -1,3 +1,6 @@
+#include<iostream>
+using namespace std;
+
 /*
 STL (standard template libraries): -
 ---------------------------------
@@ -7,7 +10,7 @@ There are 4 types: -
 	3. Algorithm	-> Predefined algorithm functions.
 	4. Funtors		-> Classes which can act as functions. It is also known as function objects.
 
-std::array: -
+array: -
 ----------
 	
 	Syntax for declaration: -
@@ -42,9 +45,8 @@ std::array: -
 		(a) swap()		-> swaping of two arrays
 		(b) empty()		-> check whether array is empty or not, if empty then return true or 1 otherwise false or 0
 		(c) fill()		-> assign all indices with same values
-		
 
-std::vector: -
+vector: -
 -----------
 
 	Syntax for declaration: -
@@ -80,58 +82,66 @@ std::vector: -
 	6. Modifiers: -
 		(a) insert()		-> insert element at specific position
 		(b) emplace()		-> insert element to that extended position
-		(c) push_back()		-> insert element from ending
-		(d) emplace_back()	-> 
+		(c) push_back()		-> remove element from ending
+		(d) emplace_back()	-> insert element from ending
 		(e) pop_back()		-> remove element from ending
-		(f) resize()		-> remove all elements after reserving some spcific position of elemets
+		(f) resize()		-> remove all elements after reserving some spcific position of elements
 		(g)	swap()			-> swaping of two arrays
 		(h)	erase()			-> removing some specific position of elements
 		(i) clear()			-> remove all elements
 		(j) size()			-> how many elements present
 		(k) capacity()		-> how much capacity is present (complier dependent)
-		(l) reserve(A)		-> initially reserve some amount of capacity
-		(m) shrink_to_fit()	-> 
-
+		(l) reserve()		-> initially reserve some amount of capacity
+		(m) shrink_to_fit()	-> reduce capacity of the container by shrinking to only non-inserted elements
 */
 
 /*
 
-Example of std::vector: -
+Example of vector: -
 ----------------------
 */
-#include<iostream>
 #include<vector>
 int main()
 {
-	std::vector<int> vect1 = {1,2,3,4,5,6,7,8,9,0};
+	vector<int> vect1 = {1,2,3,4,5,6,7,8,9,0};
 
-	std::cout<<"Iterate from begin() to end(): -"<<std::endl;
+	cout<<"Iterate from begin() to end(): -"<<endl;
 	for(auto i = vect1.begin(); i != vect1.end(); i++)
 	{
-		std::cout<< *i <<" ";
+		cout<< *i <<" ";
 	}
-	std::cout<<std::endl;
+	cout<<endl;
 
-	std::cout<<"Iterate from rbegin() to rend(): -"<<std::endl;
+	cout<<"Iterate from rbegin() to rend(): -"<<endl;
 	for(auto i = vect1.rbegin(); i != vect1.rend(); i++)
 	{
-		std::cout<< *i <<" ";
+		cout<< *i <<" ";
 	}
-	std::cout<<std::endl;
+	cout<<endl;
 
-	std::cout<<"Iterate from cbegin() to cend(): -"<<std::endl;
+	cout<<"Iterate from cbegin() to cend(): -"<<endl;
 	for(auto i = vect1.cbegin(); i != vect1.cend(); i++)
 	{
-		std::cout<< *i <<" ";
+		cout<< *i <<" ";
 	}
-	std::cout<<std::endl;
+	cout<<endl;
 
-	std::cout<<"Iterate from crbegin() to crend(): -"<<std::endl;
+	cout<<"Iterate from crbegin() to crend(): -"<<endl;
 	for(auto i = vect1.crbegin(); i != vect1.crend(); i++)
 	{
-		std::cout<< *i <<" ";
+		cout<< *i <<" ";
 	}
-	std::cout<<std::endl;
+	cout<<endl;
+
+	// insert(position, value)
+	// position is a vector data type
+	cout<<"Inserting element at specific positions: -"<<endl;
+	vect1.insert(vect1.begin()+2, 100);
+	for(auto i = vect1.begin(); i != vect1.end(); i++)
+	{
+		cout<< *i <<" ";
+	}
+	cout<<endl;
 
 	return 0;
 
@@ -139,95 +149,94 @@ int main()
 
 /*
 
-Example of std::array: -
+Example of array: -
 ---------------------
 
-#include<iostream>
 #include<array>
 
 int main()
 {
-	std::array<int, 5> arr1;
+	array<int, 5> arr1;
 	arr1 = {1,2,3,4,5};
 
-	std::cout<<"Iterate from begin() to end(): -"<<std::endl;
+	cout<<"Iterate from begin() to end(): -"<<endl;
 	for(auto i = arr1.begin(); i != arr1.end(); i++)
 	{
-		std::cout<< *i <<" ";
+		cout<< *i <<" ";
 	}
-	std::cout<<std::endl;
+	cout<<endl;
 
-	std::cout<<"Iterate from rbegin() to rend(): -"<<std::endl;
+	cout<<"Iterate from rbegin() to rend(): -"<<endl;
 	for(auto i = arr1.rbegin(); i != arr1.rend(); i++)
 	{
-		std::cout<< *i <<" ";
+		cout<< *i <<" ";
 	}
-	std::cout<<std::endl;
+	cout<<endl;
 
-	std::cout<<"Iterate from cbegin() to cend(): -"<<std::endl;
+	cout<<"Iterate from cbegin() to cend(): -"<<endl;
 	for(auto i = arr1.cbegin(); i != arr1.cend(); i++)
 	{
-		std::cout<< *i <<" ";
+		cout<< *i <<" ";
 	}
-	std::cout<<std::endl;
+	cout<<endl;
 
-	std::cout<<"Iterate from crbegin() to crend(): -"<<std::endl;
+	cout<<"Iterate from crbegin() to crend(): -"<<endl;
 	for(auto i = arr1.crbegin(); i != arr1.crend(); i++)
 	{
-		std::cout<< *i <<" ";
+		cout<< *i <<" ";
 	}
-	std::cout<<std::endl;
+	cout<<endl;
 
-	std::cout<<"Access array elements using at(): -"<<std::endl;
+	cout<<"Access array elements using at(): -"<<endl;
 	for(int i=0; i<5; i++)
 	{
-		std::cout<<arr1.at(i)<<" ";
+		cout<<arr1.at(i)<<" ";
 	}
-	std::cout<<std::endl;
+	cout<<endl;
 
-	std::cout<<"Access array elements using []: -"<<std::endl;
+	cout<<"Access array elements using []: -"<<endl;
 	for(int i=0; i<5; i++)
 	{
-		std::cout<<arr1[i]<<" ";
+		cout<<arr1[i]<<" ";
 	}
-	std::cout<<std::endl;
+	cout<<endl;
 
-	std::cout<<"Access first array element using front(): -"<<std::endl;
-	std::cout<<arr1.front()<<std::endl;
+	cout<<"Access first array element using front(): -"<<endl;
+	cout<<arr1.front()<<endl;
 	
-	std::cout<<"Access last array element using back(): -"<<std::endl;
-	std::cout<<arr1.back()<<std::endl;
+	cout<<"Access last array element using back(): -"<<endl;
+	cout<<arr1.back()<<endl;
 
-	std::cout<<"Access address of array using data(): -"<<std::endl;
-	std::cout<<arr1.data()<<std::endl;
+	cout<<"Access address of array using data(): -"<<endl;
+	cout<<arr1.data()<<endl;
 	
-	std::cout<<"Access no. of elements present in array: -"<<std::endl;
-	std::cout<<arr1.size()<<std::endl;
+	cout<<"Access no. of elements present in array: -"<<endl;
+	cout<<arr1.size()<<endl;
 
-	std::cout<<"Access no. of elements present in array: -"<<std::endl;
-	std::cout<<arr1.max_size()<<std::endl;
+	cout<<"Access no. of elements present in array: -"<<endl;
+	cout<<arr1.max_size()<<endl;
 
-	std::array<int, 5> arr2 = {6,7,8,9,10};
+	array<int, 5> arr2 = {6,7,8,9,10};
 	arr1.swap(arr2);
 
-	std::cout<<"Swapping two arrays: -"<<std::endl;
+	cout<<"Swapping two arrays: -"<<endl;
 	for (auto i: arr1)
 	{
-		std::cout<<i<<" ";
+		cout<<i<<" ";
 	}
-	std::cout<<std::endl;
+	cout<<endl;
 
-	std::array<int, 4> arr3;
-	std::cout<<"Check whether array is empty or not: -"<<std::endl;
-	std::cout<<arr3.empty()<<std::endl;
+	array<int, 4> arr3;
+	cout<<"Check whether array is empty or not: -"<<endl;
+	cout<<arr3.empty()<<endl;
 
-	std::cout<<"Fill all places with same value"<<std::endl;
+	cout<<"Fill all places with same value"<<endl;
 	arr3.fill(123);
 	for(auto i : arr3)
 	{
-		std::cout<<i<<" ";
+		cout<<i<<" ";
 	}
-	std::cout<<std::endl;
+	cout<<endl;
 
 	return 0;
 }
