@@ -10,6 +10,37 @@ There are 4 types: -
 	3. Algorithm	-> Predefined algorithm functions.
 	4. Funtors		-> Classes which can act as functions. It is also known as function objects.
 
+Iterator: -
+--------
+	begin()		-> return iterator pointing to first element
+	end()		-> return iterator pointing to last element
+	rbegin()	-> return reverse iterator pointing to last element
+	rend()		-> return reverse iterator pointing to first element
+	cbegin()	-> return constant iterator pointing to first element
+	cend()		-> return constant iterator pointing to last element
+	crbegin() 	-> return constant reverse iterator pointing to last element
+	crend()		-> return constant reverse iterator pointing to first element
+
+Size and Capacity: -
+-----------------
+	size()				-> return maximum number of elements present
+	sizeof()			-> return total size of container in bytes
+	empty()				-> return true (if empty) or false (if not empty)
+	max_size()			-> return maximum number of elements present
+	capacity()			-> return number of blocks of space are present (compiler dependent) (only vector and string)
+	reserve()			-> reserve space for specific elements in container (only vector and string)
+	resize()			-> remove all elements after reserving spcified amount of elements
+	shrink_to_fit()		-> make capacity() to size()(only vector, string, deque)
+	clear()				-> erase all elements from container
+
+Access Elements: -
+---------------
+	at()				-> return element of container using index or key
+	[]					-> return element of container using index or key
+	front()				-> return first element of container
+	back()				-> return last element of container
+	data()				-> return address of container first element
+
 array: -
 ----------
 	
@@ -23,28 +54,9 @@ array: -
 	1. It is a fixed size container.
 	2. Size of array is needed at compile-time.
 	3. We have to use <array> header file.
-	4. Iterators: -
-		(a) begin()		-> return iterator pointing to first element
-		(b) end()		-> return iterator pointing to last element
-		(c) rbegin()	-> return reverse iterator pointing to last element
-		(d) rend()		-> return reverse iterator pointing to first element
-		(e) cbegin()	-> return constant iterator pointing to first element
-		(f) cend()		-> return constant iterator pointing to last element
-		(g) crbegin() 	-> return constant reverse iterator pointing to last element
-		(h) crend()		-> return constant reverse iterator pointing to first element
-	4. Access elemets: -
-		(a) at()		-> return element of array using index
-		(b) []			-> return element of array using index
-		(c) front()		-> return first element of array
-		(d) back()		-> return last element of array
-		(e) data()		-> return address of array first element
-		(f) size()		-> return maximum number of elements present
-			max_size()	-> return maximum number of elements present
-		(g) sizeof()	-> return total size of array in bytes
-	5. Modifiers: -
+	4. Modifiers: -
 		(a) swap()		-> swaping of two arrays
-		(b) empty()		-> check whether array is empty or not, if empty then return true or 1 otherwise false or 0
-		(c) fill()		-> assign all indices with same values
+		(b) fill()		-> assign all indices with same values
 
 vector: -
 -----------
@@ -61,38 +73,14 @@ vector: -
 	1. It is a dynamic size container and also known as dynamic array or array list.
 	2. Size of array is not needed at compile-time.
 	3. We have to use <vector> header file.
-	4. Iterators: -
-		(a) begin()		-> return iterator pointing to first element
-		(b) end()		-> return iterator pointing to last element
-		(c) rbegin()	-> return reverse iterator pointing to last element
-		(d) rend()		-> return reverse iterator pointing to first element
-		(e) cbegin()	-> return constant iterator pointing to first element
-		(f) cend()		-> return constant iterator pointing to last element
-		(g) crbegin() 	-> return constant reverse iterator pointing to last element
-		(h) crend()		-> return constant reverse iterator pointing to first element
-	5. Access elemets: -
-		(a) at()		-> return element using index
-		(b) []			-> return element using index
-		(c) front()		-> return first element
-		(d) back()		-> return last element
-		(e) data()		-> return address
-		(f) size()		-> return maximum number of elements present
-			max_size()	-> return maximum number of elements present
-		(g) sizeof()	-> return total size in bytes
-	6. Modifiers: -
-		(a) insert()		-> insert element at specific position
-		(b) emplace()		-> insert element to that extended position
+	4. Modifiers: -
+		(a) insert()		-> insert element at specific position (coping of objects takes place)
+		(b) emplace()		-> insert element at specific position (making of new objects takes place)
 		(c) push_back()		-> remove element from ending
 		(d) emplace_back()	-> insert element from ending
 		(e) pop_back()		-> remove element from ending
-		(f) resize()		-> remove all elements after reserving some spcific position of elements
-		(g)	swap()			-> swaping of two arrays
+		(g)	swap()			-> swaping of two vectors
 		(h)	erase()			-> removing some specific position of elements
-		(i) clear()			-> remove all elements
-		(j) size()			-> how many elements present
-		(k) capacity()		-> how much capacity is present (complier dependent)
-		(l) reserve()		-> initially reserve some amount of capacity
-		(m) shrink_to_fit()	-> reduce capacity of the container by shrinking to only non-inserted elements
 */
 
 /*
@@ -100,61 +88,8 @@ vector: -
 Example of vector: -
 ----------------------
 */
-#include<vector>
-int main()
-{
-	vector<int> vect1 = {1,2,3,4,5,6,7,8,9,0};
 
-	cout<<"Iterate from begin() to end(): -"<<endl;
-	for(auto i = vect1.begin(); i != vect1.end(); i++)
-	{
-		cout<< *i <<" ";
-	}
-	cout<<endl;
-
-	cout<<"Iterate from rbegin() to rend(): -"<<endl;
-	for(auto i = vect1.rbegin(); i != vect1.rend(); i++)
-	{
-		cout<< *i <<" ";
-	}
-	cout<<endl;
-
-	cout<<"Iterate from cbegin() to cend(): -"<<endl;
-	for(auto i = vect1.cbegin(); i != vect1.cend(); i++)
-	{
-		cout<< *i <<" ";
-	}
-	cout<<endl;
-
-	cout<<"Iterate from crbegin() to crend(): -"<<endl;
-	for(auto i = vect1.crbegin(); i != vect1.crend(); i++)
-	{
-		cout<< *i <<" ";
-	}
-	cout<<endl;
-
-	// insert(position, value)
-	// position is a vector data type
-	cout<<"Inserting element at specific positions: -"<<endl;
-	vect1.insert(vect1.begin()+2, 100);
-	for(auto i = vect1.begin(); i != vect1.end(); i++)
-	{
-		cout<< *i <<" ";
-	}
-	cout<<endl;
-
-	return 0;
-
-}
-
-/*
-
-Example of array: -
----------------------
-
-#include<array>
-
-int main()
+void array_example()
 {
 	array<int, 5> arr1;
 	arr1 = {1,2,3,4,5};
@@ -237,8 +172,90 @@ int main()
 		cout<<i<<" ";
 	}
 	cout<<endl;
-
-	return 0;
 }
 
-*/
+void vector_example()
+{
+	vector<int> vect1 = {1,2,3,4,5,6,7,8,9,0};
+
+	cout<<"Iterate from begin() to end(): -"<<endl;
+	for(auto i = vect1.begin(); i != vect1.end(); i++)
+	{
+		cout<< *i <<" ";
+	}
+	cout<<endl;
+
+	cout<<"Iterate from rbegin() to rend(): -"<<endl;
+	for(auto i = vect1.rbegin(); i != vect1.rend(); i++)
+	{
+		cout<< *i <<" ";
+	}
+	cout<<endl;
+
+	cout<<"Iterate from cbegin() to cend(): -"<<endl;
+	for(auto i = vect1.cbegin(); i != vect1.cend(); i++)
+	{
+		cout<< *i <<" ";
+	}
+	cout<<endl;
+
+	cout<<"Iterate from crbegin() to crend(): -"<<endl;
+	for(auto i = vect1.crbegin(); i != vect1.crend(); i++)
+	{
+		cout<< *i <<" ";
+	}
+	cout<<endl;
+
+	// insert(position, value)
+	// emplace(position, value)
+	// position is a vector data type
+	// use emplace for effiency
+	cout<<"Inserting element at specific positions: -"<<endl;
+	vect1.insert(vect1.begin()+2, 100);
+	vect1.emplace(vect1.begin()+3, 300);
+	for(auto i = vect1.begin(); i != vect1.end(); i++)
+	{
+		cout<< *i <<" ";
+	}
+	cout<<endl;
+
+	cout<<"Inserting element from ending: -"<<endl;
+	vect1.emplace_back(555);
+	for(auto i = vect1.begin(); i != vect1.end(); i++)
+	{
+		cout<<*i<<" ";
+	}
+	cout<<endl;
+
+	cout<<"Removing element from ending: -"<<endl;
+	vect1.pop_back();
+	for(auto i = vect1.begin(); i != vect1.end(); i++)
+	{
+		cout<<*i<<" ";
+	}
+	cout<<endl;
+
+	cout<<"Resizing container to some specific elements: -"<<endl;
+	vect1.resize(4);
+	for(auto i = vect1.begin(); i != vect1.end(); i++)
+	{
+		cout<< *i <<" ";
+	}
+	cout<<endl;
+
+	vector<int> vect2 = {11,22,33,44,55,66};
+	vect1.swap(vect2);
+	cout<<"Swapping two vectors: -"<<endl;
+	for(auto i = vect1.begin(); i != vect1.end(); i++)
+	{
+		cout<< *i <<" ";
+	}
+	cout<<endl;
+}
+#include<vector>
+int main()
+{
+	array_example();
+	vector_example();
+	return 0;
+}

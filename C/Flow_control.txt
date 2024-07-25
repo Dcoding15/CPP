@@ -1,0 +1,85 @@
+If-else if-else Condition: -
+=========================
+if ( condition_statement_1 )
+{
+	...;
+	...;
+}
+else if ( condition_statement_2 )
+{
+	...;
+	...;
+}
+else
+{
+	...;
+	...;
+}
+
+Switch Case: -
+===========
+switch(constant_value)
+{
+	case constant_expression_1:
+								...;
+								break;
+	case constant_expression_2:
+								...;
+								break;
+			*
+			*
+			*
+	case constant_expression_N:
+								...;
+								break;
+	default:
+				...;
+}
+
+Range in switch case: -
+====================
+switch(constant_value)
+{
+	case low_value ... high_vale:
+								...;
+								break;
+	default:
+				...;
+}
+
+For Loop: -
+========
+for ( Initialisation ; Conditional ; Increment / Decrement)
+{
+	...;
+	...;
+}
+
+While Loop: -
+==========
+while ( Conditional )
+{
+	...;
+	...;
+}
+
+Do While Loop: - 
+=============
+do
+{
+	...;
+	...;
+}while (Conditional);
+
+Break and Continue: -
+==================
+Break    => This statement will exit from loop and swtich statement.
+Continue => This statement will skip from loop and swtich statement.
+
+Goto and labels: -
+===============
+goto label_name;	<- jump from starting
+
+label_name:			<- jump to destination
+	...;
+	...; 

@@ -1,0 +1,18 @@
+Macro substitution: -
+==================
+To include external files		: #include "filename"  OR  #include<filename>
+To defining constants			: #define variable_name/function_name value
+To undefine constatnts			: #undef variable_name/function_name
+
+To concatenate actual arguments	: actual_argument_1 ## actual_argument_2 ## actual_argument_3 ## ... ## actual_argument_N
+
+Example: -
+#include<stdio.h>
+#define PI 3.147859
+int main(int argc, char* argv[])
+{
+	printf("%f\n",PI);
+	return 0;
+}
+Output: -
+3.147859

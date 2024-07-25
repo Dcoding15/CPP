@@ -1,0 +1,145 @@
+Function: -
+========
+// Proto type function which is always declared before main() function
+// It is optional to declare
+data_type function_name(data_type arg1, data_type arg2, ..., data_type argN);
+
+// User defined function which is always defined after main() function
+data_type function_name(data_type arg1, data_type arg2, ..., data_type argN)
+{
+	return[Depend upon function data type]
+}
+
+// Implicit return type is always int.( Only in C)
+function_name(data_type arg1, data_type arg2, ..., data_type argN)
+{
+	return ...;
+}
+
+About main function: -
+===================
+// main() function with no argument and int data type
+int main(void)
+{
+	return 0; //If main() function is int data type
+}
+
+// main() function with no argument and void data type
+void main()
+{
+	// If main() function data type is void then there is no return type
+}
+
+// main() function with command line argument
+int main(int argc, char* argv[])
+{
+	// int argc     --> No. of arguments passed in the command line (Default value is 1).
+	// char* argv[] --> Stores all command line arguments in array.
+	return 0;
+}
+
+1. Execution starts only with main() function.
+2. It is created only once in every program.
+3. It can have either int or void data type.
+4. It is called by OS not the user.
+
+Example of Callback: -
+===================
+// Functors are also used for these purpose
+#include<stdio.h>
+void fun()
+{
+	printf("This is example of callback");
+}
+void main()
+{
+	void (*a)() = &fun;
+	a();					// Callback
+}
+Output: -
+This is example of callback
+
+Variadic Functions: -
+==================
+1. These are functions that can take more than one number of arguments.
+2. It's header file is <stdarg.h>
+Example: -
+#include<stdio.h>
+#include<stdarg.h>	// It is use to take one or more arguments
+int fun(int N, ...)
+{
+	// va_list is use to declare variable hold arguments
+	// Except va_list all others are macro
+	va_list ap, ap_copy;
+
+	// va_start(va_list, argN) is use to initialize that va_list variable
+	va_start(ap, N);
+
+	for(int i = 0; i < N; i++)
+	{
+		// va_arg(va_list, data_type) is use to iterate through arguments
+		printf("%d\n",va_arg(ap, int));
+	}
+
+	// va_copy(va_list, va_list) is use to copy variable arguments
+	va_copy(ap_copy, ap);
+
+	// va_end(va_list) is use to destroy va_list variable
+	va_end(ap);
+}
+int main(void)
+{
+	fun(5,1,2,3,4,5);
+	return 0;
+}
+Output: -
+1
+2
+3
+4
+5
+
+_Noreturn or noreturn function specifier: -
+=======================================
+1. This _Noreturn or noreturn keyword is use to define function which has no return value.
+2. It is provided in stdnoreturn.h header file.
+Example: -
+#include<stdio.h>
+#include<stdnoreturn.h>
+// _Noreturn or noreturn both are same
+// Recommend to use noreturn function
+noreturn void fun()
+{
+	printf("This is example of _Noreturn or noreturn\n");
+}
+int main(void)
+{
+	fun();
+	return 0;
+}
+Output: -
+This is example of _Noreturn or noreturn
+
+Predefined Identifier __func__: -
+==============================
+1. C compiler implicitly adds this identifier in every functions.
+2. It is use to get the function name.
+3. If someone explicitly defines then it might get an error.
+4. __FILE__ is use to get file name and __LINE__ is use to get line number.
+Example: -
+#include<stdio.h>
+void fun1()
+{
+	printf("Function name: %s\n",__func__);
+}
+int main(void)
+{
+	fun1();
+	printf("File name: %s\n",__FILE__);
+	printf("Line number: %i\n",__LINE__);
+	return 0;
+}
+Output: -
+Function name: fun1
+File name: main.c
+Line number: 10

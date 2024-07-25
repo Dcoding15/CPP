@@ -64,6 +64,23 @@ T max(T a, T b)
 	return a > b ? a : b;
 }
 
+/*
+ * Friend Function: -
+ * ===============
+ * It is a type of function which can access private and protected member of a class, without being member of that class.
+ * It is defiened outside of the class.
+ * */
+class A
+{
+	int value = 100;
+	friend int fun1();
+};
+int fun1()
+{
+	A obj1;
+	std::cout<<"This is example of friend function: "<<obj1.value<<std::endl;
+}
+
 int main(int argc, char **argv)
 {
 	/*
@@ -225,6 +242,9 @@ int main(int argc, char **argv)
 
 	std::cout<<"Function Template (1st way): "<<max(1,256)<<std::endl;
 	std::cout<<"Function Template (2nd way): "<<max<double>(45.20,4.23)<<std::endl;
+
+
+	fun1();
 
 	return 0;
 }
