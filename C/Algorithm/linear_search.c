@@ -9,26 +9,28 @@
  *  	Worst Case   -> O(n)
  * */
 
-int linearSearch(int arr[], int len,int value)
+int linear_search(int arr[], int value, int size)
 {
 	int i;
-	for(i = 0; i < len; i++)
+	for(i = 0; i < size; i++)
 	{
 		if (arr[i] == value)
-			return i+1;
+			return i;
 	}
 	return -1;
 }
 
 int main()
 {
-	int size;
-	printf("Enter array size: ");
-	scanf("%d",&size);
-	int arr[size], i;
-	for(i = 0; i < size; i++)
-	{
-		scanf("%d",&arr[i]);
+	int size = 10;
+	int arr[] = {1,2,3,4,5,6,7,8,9,10}, i;
+	for (i = 0; i < size; i++) {
+		if (i == linear_search(arr, i+1, size)) {
+			printf("Test Passed at value %d\n",i+1);
+		}
+		else {
+			printf("Test Failed at value %d\n",i+1);
+		}
 	}
-	printf("Position: %d\n",linearSearch(arr, size,4));
+	return 0;
 }
