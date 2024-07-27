@@ -24,16 +24,19 @@ int main(int argc, char* argv[])
 	float e;
 	double f;
 	bool g;
+	void *h;
 
-	printf("Size of int     -> %d bytes\n",sizeof(int));
-	printf("Size of long    -> %d bytes\n",sizeof(long));
-	printf("Size of short   -> %d bytes\n",sizeof(short));
-	printf("Size of char    -> %d byte\n",sizeof(char));
-	printf("Size of bool    -> %d bit\n",sizeof(bool));
-	printf("Size of float   -> %d bytes\n",sizeof(float));
-	printf("Size of double  -> %d bytes\n",sizeof(double));
+	printf("Size of int     -> %lu bytes\n",sizeof(int));
+	printf("Size of long    -> %lu bytes\n",sizeof(long));
+	printf("Size of short   -> %lu bytes\n",sizeof(short));
+	printf("Size of char    -> %lu byte\n",sizeof(char));
+	printf("Size of bool    -> %lu bit\n",sizeof(bool));
+	printf("Size of float   -> %lu bytes\n",sizeof(float));
+	printf("Size of double  -> %lu bytes\n",sizeof(double));
+	printf("Size of void    -> %lu bytes\n",sizeof(void *));
 
 	/*
+	 * %p		-> pointer
 	 * %hd		-> short integer
 	 * %hu		-> unsigned short integer
 	 * %u		-> unsinged integer

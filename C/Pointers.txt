@@ -1,0 +1,71 @@
+C Pointers: A derived data type that can store, access, manipulate memory location of other C variables.
+Dereference a pointer: It is the process of accessing the value stored in the memory address specified in the pointer.
+
+Syntax of Pointers: -
+	data_type * variable_name;
+
+Example 1: -
+int a = 10;
+int * ptr;
+ptr = &a;
+
+Example 2: -
+int a = 10;
+int * ptr = &a;
+
+Example 3: -
+int a = 10;
+int * ptr  = &a;
+int b = *ptr;
+printf("%d\n",b);
+
+Example 4: -
+int a = 1025;
+int *p;
+p = &a;
+printf("size of integer is %d bytes\n",sizeof(int));
+printf("address = %d, value = %d\n",p,*p);
+printf("address = %d, value = %d\n",p+1,*(p+1));
+char *p0;
+p0 = (char *)p;
+printf("size of char is %d bytes\n",sizeof(char *));
+printf("address = %d, value = %d\n",p0, *p0);
+printf("address = %d, value = %d\n",p0+1,*(p0+1));
+// 1025 -> 00000000 00000000 00000100 00000001
+
+Example 5: -
+// This is example of void pointer
+void * ptr1;
+
+Example 6: -
+// This is example of pointer to pointer
+int a = 10;
+int * p1 = &a;   // Pointer to integer
+int ** p2 = &p2; // Pointer to pointer
+int *** p3 = &p3 // Pointer to pointer to pointer
+.
+.
+.
+
+Example 6: -
+// This is example of pointer to array
+int arr[] = {1,2,3,4,5,6,7,8,9,11,12,13}, i;
+for (i = 0; i < sizeof(arr); i++) {
+	printf("Address of &arr[%d] = %p\n",i,&arr[i]);
+	printf("Address of arr+%d = %p\n",i,arr+i);
+	printf("Value of arr[%d] = %d\n",i,arr[i]);
+	printf("Value of *arr+%d = %d\n",i,arr+i);
+}
+
+Types of pointers: -
+	1. Integer Pointer or Pointer to Integer       -> Points to integer value
+	2. Array Pointer or Pointer to Array           -> Without & points to 0th index of array and with & points whole array
+	3. Structure Pointer or Pointer to Structure   -> Points to structure type
+	4. Function Pointer                            -> Points to user defined functions
+	5. NULL Pointer                                ->
+	6. Void Pointer or generic pointer             -> Points to void data type
+	7. Wild Pointer                                ->
+	8. Constant Pointer                            ->
+	9. Pointer to Constant                         ->
+	10. Far Pointer                                ->
+
